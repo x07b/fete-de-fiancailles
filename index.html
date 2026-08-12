@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#d8c5e8" />
+  <meta name="description" content="دعوة خطوبة مهدي وابتهال - 26 سبتمبر 2026" />
+  <title>مهدي & ابتهال | دعوة خطوبة</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --lilac-1: #faf7fc;
+      --lilac-2: #eadcf2;
+      --lilac-3: #d7c0e5;
+      --lilac-4: #b79acb;
+      --lilac-5: #8c679e;
+      --deep: #493653;
+      --gold: #b99a62;
+      --paper: rgba(255, 252, 255, 0.96);
+      --shadow: 0 20px 60px rgba(75, 46, 91, 0.18);
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-right: env(safe-area-inset-right, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-left: env(safe-area-inset-left, 0px);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      width: 100%;
+      min-height: 100%;
+      scroll-behavior: smooth;
+      background: var(--lilac-1);
+      overflow-x: hidden;
+    }
+
+    body {
+      width: 100%;
+      min-width: 0;
+      min-height: 100svh;
+      margin: 0;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(255,255,255,.9), transparent 30%),
+        radial-gradient(circle at 85% 90%, rgba(183,154,203,.25), transparent 35%),
+        linear-gradient(145deg, #faf7fc 0%, #eadcf2 48%, #d8c5e8 100%);
+      color: var(--deep);
+      font-family: "Amiri", serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    button {
+      font: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    /* =========================
+       MOBILE-FIRST OPENING
+       ========================= */
+
+    .opening {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      width: 100%;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding:
+        calc(14px + var(--safe-top))
+        calc(14px + var(--safe-right))
+        calc(14px + var(--safe-bottom))
+        calc(14px + var(--safe-left));
+      background:
+        radial-gradient(circle at center, rgba(255,255,255,.38), transparent 45%),
+        linear-gradient(145deg, #f8f1fb, #d9c3e8);
+      transition: opacity .75s ease, visibility .75s ease;
+      overflow: hidden;
+    }
+
+    .opening.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .envelope {
+      position: relative;
+      width: min(100%, 420px);
+      height: min(720px, calc(100svh - 28px - var(--safe-top) - var(--safe-bottom)));
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(28px, 7vw, 52px) 20px;
+      text-align: center;
+      border: 1px solid rgba(140,103,158,.25);
+      border-radius: clamp(20px, 6vw, 30px);
+      background:
+        linear-gradient(rgba(255,255,255,.68), rgba(255,255,255,.68)),
+        repeating-linear-gradient(0deg, transparent 0 5px, rgba(140,103,158,.025) 6px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .ornament {
+      position: absolute;
+      width: clamp(150px, 50vw, 210px);
+      height: clamp(150px, 50vw, 210px);
+      border: 1px solid rgba(140,103,158,.20);
+      border-radius: 50%;
+      opacity: .75;
+      pointer-events: none;
+    }
+
+    .ornament::before,
+    .ornament::after {
+      content: "";
+      position: absolute;
+      inset: 11%;
+      border: 1px solid rgba(185,154,98,.35);
+      border-radius: 50%;
+    }
+
+    .ornament::after {
+      inset: 23%;
+      border-color: rgba(140,103,158,.18);
+    }
+
+    .ornament.top { top: clamp(-110px, -20vw, -75px); }
+    .ornament.bottom { bottom: clamp(-110px, -20vw, -75px); }
+
+    .mini-flower {
+      position: absolute;
+      width: clamp(80px, 28vw, 120px);
+      height: clamp(80px, 28vw, 120px);
+      opacity: .30;
+      pointer-events: none;
+    }
+
+    .mini-flower span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 25%;
+      height: 50%;
+      border: 1px solid var(--lilac-5);
+      border-radius: 100% 0 100% 0;
+      transform-origin: 0 100%;
+    }
+
+    .mini-flower span:nth-child(1) { transform: translate(-2px,-55px) rotate(0deg); }
+    .mini-flower span:nth-child(2) { transform: translate(-2px,-55px) rotate(45deg); }
+    .mini-flower span:nth-child(3) { transform: translate(-2px,-55px) rotate(90deg); }
+    .mini-flower span:nth-child(4) { transform: translate(-2px,-55px) rotate(135deg); }
+    .mini-flower span:nth-child(5) { transform: translate(-2px,-55px) rotate(180deg); }
+    .mini-flower span:nth-child(6) { transform: translate(-2px,-55px) rotate(225deg); }
+    .mini-flower span:nth-child(7) { transform: translate(-2px,-55px) rotate(270deg); }
+    .mini-flower span:nth-child(8) { transform: translate(-2px,-55px) rotate(315deg); }
+
+    .mini-flower.left {
+      left: -25px;
+      top: 18%;
+      transform: rotate(-25deg);
+    }
+
+    .mini-flower.right {
+      right: -25px;
+      top: 22%;
+      transform: rotate(25deg);
+    }
+
+    .bismillah-small {
+      position: relative;
+      z-index: 2;
+      max-width: 90%;
+      margin: 0 0 clamp(12px, 3vw, 20px);
+      font-size: clamp(17px, 4.5vw, 22px);
+      line-height: 1.7;
+      color: #6b4d79;
+    }
+
+    .initials {
+      position: relative;
+      z-index: 2;
+      width: clamp(88px, 25vw, 118px);
+      height: clamp(88px, 25vw, 118px);
+      flex: 0 0 auto;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin: 3px auto clamp(14px, 4vw, 24px);
+      color: #fff;
+      background: radial-gradient(circle at 30% 25%, #aa86b9, #755183);
+      border: 5px double rgba(255,255,255,.55);
+      box-shadow: 0 10px 35px rgba(92,61,108,.22);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(34px, 10vw, 46px);
+      font-weight: 600;
+      direction: ltr;
+    }
+
+    .opening-kicker {
+      position: relative;
+      z-index: 2;
+      margin: 0;
+      font-size: clamp(15px, 4vw, 19px);
+      letter-spacing: 1.5px;
+      color: #76557f;
+    }
+
+    .opening-names {
+      position: relative;
+      z-index: 2;
+      margin: 5px 0 0;
+      max-width: 100%;
+      font-size: clamp(36px, 11vw, 62px);
+      line-height: 1.15;
+      color: #4b3654;
+      overflow-wrap: break-word;
+    }
+
+    .amp {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--gold);
+      font-size: .7em;
+      margin: 0 4px;
+    }
+
+    .opening-subtitle {
+      position: relative;
+      z-index: 2;
+      max-width: 300px;
+      margin: clamp(13px, 4vw, 21px) 0 clamp(22px, 6vw, 35px);
+      font-size: clamp(16px, 4.3vw, 20px);
+      line-height: 1.8;
+      color: #6d5a73;
+    }
+
+    .open-button {
+      position: relative;
+      z-index: 3;
+      width: min(100%, 250px);
+      min-height: 52px;
+      padding: 13px 22px;
+      border: 1px solid rgba(117,81,131,.25);
+      border-radius: 999px;
+      color: #fff;
+      background: #735080;
+      box-shadow: 0 12px 28px rgba(93,63,107,.25);
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .open-button:active {
+      transform: scale(.97);
+    }
+
+    .tap {
+      position: relative;
+      z-index: 2;
+      display: block;
+      margin-top: 11px;
+      font-family: Arial, sans-serif;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: rgba(73,54,83,.55);
+      direction: ltr;
+    }
+
+    /* =========================
+       MAIN INVITATION
+       ========================= */
+
+    .page {
+      width: 100%;
+      min-height: 100svh;
+      padding:
+        max(16px, 4vw)
+        max(10px, 3vw)
+        calc(50px + var(--safe-bottom));
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity .9s ease .15s, transform .9s ease .15s;
+    }
+
+    body.opened .page {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .invitation {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      overflow: hidden;
+      border: 1px solid rgba(140,103,158,.20);
+      border-radius: clamp(18px, 5vw, 32px);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      position: relative;
+      padding:
+        clamp(35px, 9vw, 58px)
+        clamp(16px, 6vw, 36px)
+        clamp(28px, 7vw, 42px);
+      text-align: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(255,255,255,.95), transparent 38%),
+        linear-gradient(150deg, #faf5fc, #e7d6ef);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "❦";
+      position: absolute;
+      color: rgba(140,103,158,.20);
+      font-size: clamp(70px, 20vw, 110px);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      top: 10px;
+      left: 5px;
+      transform: rotate(-20deg);
+    }
+
+    .hero::after {
+      top: 10px;
+      right: 5px;
+      transform: rotate(20deg) scaleX(-1);
+    }
+
+    .arabic-bismillah {
+      position: relative;
+      z-index: 1;
+      margin-bottom: clamp(12px, 3vw, 22px);
+      font-size: clamp(19px, 5vw, 25px);
+      line-height: 1.7;
+      color: #61456e;
+    }
+
+    .verse {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 650px;
+      margin: auto;
+      font-size: clamp(19px, 5.3vw, 31px);
+      line-height: 1.9;
+      color: #4f3b58;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .gold-line {
+      position: relative;
+      z-index: 1;
+      width: min(120px, 30vw);
+      height: 1px;
+      margin: clamp(17px, 5vw, 27px) auto;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .families {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(17px, 4.7vw, 21px);
+      line-height: 2;
+      color: #5d4a65;
+    }
+
+    .families strong {
+      color: #62456f;
+      font-size: clamp(19px, 5vw, 24px);
+    }
+
+    .names {
+      position: relative;
+      z-index: 1;
+      margin: clamp(18px, 5vw, 24px) 0 4px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(43px, 12vw, 82px);
+      line-height: 1;
+      direction: ltr;
+      color: #563b61;
+      white-space: normal;
+      overflow-wrap: break-word;
+    }
+
+    .names .amp {
+      font-size: .62em;
+    }
+
+    .event-label {
+      position: relative;
+      z-index: 1;
+      margin-top: 12px;
+      font-size: clamp(16px, 4.4vw, 19px);
+      line-height: 1.8;
+      color: #876a90;
+    }
+
+    .content {
+      width: 100%;
+      padding:
+        clamp(25px, 7vw, 42px)
+        clamp(12px, 5vw, 28px)
+        clamp(35px, 8vw, 50px);
+      text-align: center;
+    }
+
+    .intro {
+      width: 100%;
+      max-width: 610px;
+      margin: 0 auto clamp(22px, 6vw, 32px);
+      font-size: clamp(17px, 4.7vw, 22px);
+      line-height: 2;
+      color: #5d4c63;
+    }
+
+    /* Full-width responsive image */
+    .photo-frame {
+      position: relative;
+      width: 100%;
+      max-width: 610px;
+      margin: 0 auto;
+      padding: clamp(6px, 2vw, 10px);
+      border: 1px solid rgba(185,154,98,.45);
+      background: #fff;
+      box-shadow: 0 14px 35px rgba(75,46,91,.14);
+    }
+
+    .photo-frame::before {
+      content: "";
+      position: absolute;
+      inset: 3px;
+      border: 1px solid rgba(140,103,158,.22);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .photo-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      min-height: 0;
+      max-height: none;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .photo-caption {
+      margin: clamp(18px, 5vw, 26px) 0 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(22px, 6vw, 28px);
+      line-height: 1.3;
+      color: #694b75;
+      direction: ltr;
+    }
+
+    .details {
+      width: 100%;
+      max-width: 610px;
+      margin: clamp(28px, 7vw, 40px) auto 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .detail {
+      width: 100%;
+      min-width: 0;
+      padding: 15px 12px;
+      border: 1px solid rgba(140,103,158,.18);
+      border-radius: 16px;
+      background: rgba(246,239,250,.68);
+    }
+
+    .detail .icon {
+      display: block;
+      font-size: 21px;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .detail .label {
+      display: block;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #95799e;
+    }
+
+    .detail .value {
+      display: block;
+      margin-top: 2px;
+      font-size: clamp(16px, 4.3vw, 19px);
+      line-height: 1.7;
+      color: #57425f;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .closing {
+      margin-top: clamp(28px, 7vw, 42px);
+      padding-top: clamp(20px, 5vw, 30px);
+      border-top: 1px solid rgba(140,103,158,.18);
+      font-size: clamp(17px, 4.7vw, 21px);
+      line-height: 2;
+      color: #654f6d;
+    }
+
+    .closing-signature {
+      margin-top: 12px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(22px, 6vw, 27px);
+      color: #795984;
+      direction: ltr;
+    }
+
+    .music-button {
+      position: fixed;
+      left: calc(14px + var(--safe-left));
+      bottom: calc(14px + var(--safe-bottom));
+      z-index: 20;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(117,81,131,.20);
+      border-radius: 50%;
+      background: rgba(255,255,255,.90);
+      color: #735080;
+      box-shadow: 0 8px 25px rgba(75,46,91,.16);
+      cursor: pointer;
+      touch-action: manipulation;
+      display: none;
+    }
+
+    body.opened .music-button {
+      display: block;
+    }
+
+    .petal {
+      position: fixed;
+      top: -20px;
+      z-index: 110;
+      width: 10px;
+      height: 16px;
+      border-radius: 100% 0 100% 0;
+      background: rgba(183,154,203,.55);
+      pointer-events: none;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translate3d(var(--x), 110vh, 0) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    /* =========================
+       SMALL PHONES
+       ========================= */
+
+    @media (max-width: 360px) {
+      .opening {
+        padding: 8px;
+      }
+
+      .envelope {
+        height: calc(100svh - 16px);
+        min-height: 480px;
+        border-radius: 18px;
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .initials {
+        width: 78px;
+        height: 78px;
+        font-size: 29px;
+      }
+
+      .opening-subtitle {
+        margin-bottom: 18px;
+      }
+
+      .open-button {
+        min-height: 48px;
+      }
+
+      .hero {
+        padding-top: 30px;
+      }
+
+      .content {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+
+    /* =========================
+       LANDSCAPE PHONES
+       ========================= */
+
+    @media (max-height: 560px) and (orientation: landscape) {
+      .opening {
+        place-items: center;
+      }
+
+      .envelope {
+        width: min(92vw, 700px);
+        height: calc(100svh - 16px);
+        min-height: 0;
+        padding: 15px 30px;
+      }
+
+      .ornament,
+      .mini-flower {
+        opacity: .15;
+      }
+
+      .initials {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 8px;
+        font-size: 27px;
+      }
+
+      .opening-subtitle {
+        margin: 8px 0 12px;
+      }
+
+      .open-button {
+        min-height: 44px;
+      }
+    }
+
+    /* =========================
+       TABLET / DESKTOP
+       ========================= */
+
+    @media (min-width: 600px) {
+      .opening {
+        padding: 28px;
+      }
+
+      .envelope {
+        height: min(760px, calc(100svh - 56px));
+      }
+
+      .page {
+        padding-top: 45px;
+      }
+
+      .details {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .detail {
+        padding: 18px 12px;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .page {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+    }
+
+    /* Touch devices: remove hover-only assumptions */
+    @media (hover: hover) {
+      .open-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 34px rgba(93,63,107,.32);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Opening screen -->
+  <section class="opening" id="opening" aria-label="فتح الدعوة">
+    <div class="envelope">
+      <div class="ornament top"></div>
+      <div class="ornament bottom"></div>
+
+      <div class="mini-flower left">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="mini-flower right">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="bismillah-small">بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ</div>
+
+      <div class="initials" aria-hidden="true">M & I</div>
+
+      <p class="opening-kicker">دعوة خطوبة</p>
+
+      <h1 class="opening-names">
+        مهدي <span class="amp">&</span> ابتهال
+      </h1>
+
+      <p class="opening-subtitle">بكل الحب، ندعوكم لمشاركتنا فرحتنا</p>
+
+      <button class="open-button" id="openButton" type="button">
+        افتحوا دعوتنا
+      </button>
+
+      <span class="tap">TAP TO OPEN</span>
+    </div>
+  </section>
+
+  <!-- Main invitation -->
+  <main class="page">
+    <article class="invitation">
+
+      <header class="hero">
+        <div class="arabic-bismillah">بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ</div>
+
+        <div class="verse">
+          "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا
+          لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً"
+        </div>
+
+        <div class="gold-line"></div>
+
+        <div class="families">
+          تتشرف عائلتا<br>
+          <strong>أنور سلمان</strong> و <strong>الحبيب سعيدي</strong><br>
+          بدعوتكم لمشاركتنا فرحتنا بمناسبة خطوبة
+        </div>
+
+        <div class="names">
+          Mehdi <span class="amp">&</span> Ibtihal
+        </div>
+
+        <div class="event-label">ابننا مهدي على ابنتنا ابتهال</div>
+      </header>
+
+      <section class="content">
+
+        <p class="intro">
+          حضوركم يكتمل به أُنسُ ليلتنا، وتُزهر به فرحتنا.
+          نتشرف بمشاركتكم هذه اللحظة الجميلة ونتمنى أن تكونوا معنا لنحتفل
+          بهذه البداية المميزة.
+        </p>
+
+        <!-- Uploaded couple photo -->
+        <figure class="photo-frame">
+          <img
+            src="assets/couple.jpg"
+            alt="مهدي وابتهال"
+            loading="eager"
+          />
+        </figure>
+
+        <p class="photo-caption">A beautiful beginning to our story</p>
+
+        <section class="details" aria-label="تفاصيل المناسبة">
+          <div class="detail">
+            <span class="icon">♡</span>
+            <span class="label">المناسبة</span>
+            <span class="value">الخطوبة</span>
+          </div>
+
+          <div class="detail">
+            <span class="icon">✦</span>
+            <span class="label">التاريخ</span>
+            <span class="value">السبت 26 سبتمبر 2026</span>
+          </div>
+
+          <div class="detail">
+            <span class="icon">◷</span>
+            <span class="label">التوقيت</span>
+            <span class="value">ابتداءً من الساعة 20:00</span>
+          </div>
+
+          <div class="detail">
+            <span class="icon">❦</span>
+            <span class="label">أهلاً وسهلاً</span>
+            <span class="value">بكم تكتمل فرحتنا</span>
+          </div>
+        </section>
+
+        <div class="closing">
+          <div>نسعد بحضوركم ومشاركتكم لنا هذه الفرحة</div>
+          <div class="closing-signature">Mehdi & Ibtihel</div>
+        </div>
+
+      </section>
+    </article>
+  </main>
+
+  <!-- Optional music button. Add your own audio file as assets/music.mp3 -->
+  <button class="music-button" id="musicButton" type="button" aria-label="تشغيل أو إيقاف الموسيقى">
+    ♪
+  </button>
+
+  <audio id="music" loop preload="none">
+    <source src="assets/Perfect - Ed Sheeran❤️ Wedding Dance ONLINE  Simple & Short First Dance Choreography.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const opening = document.getElementById("opening");
+    const openButton = document.getElementById("openButton");
+    const musicButton = document.getElementById("musicButton");
+    const music = document.getElementById("music");
+
+    function createPetals() {
+      for (let i = 0; i < 22; i++) {
+        const petal = document.createElement("span");
+        petal.className = "petal";
+
+        const startX = Math.random() * window.innerWidth;
+        const drift = (Math.random() - 0.5) * 280;
+        const duration = 3 + Math.random() * 3;
+        const delay = Math.random() * 1.4;
+        const size = 7 + Math.random() * 7;
+
+        petal.style.left = startX + "px";
+        petal.style.width = size + "px";
+        petal.style.height = (size * 1.5) + "px";
+        petal.style.setProperty("--x", drift + "px");
+        petal.style.animationDuration = duration + "s";
+        petal.style.animationDelay = delay + "s";
+
+        document.body.appendChild(petal);
+        setTimeout(() => petal.remove(), (duration + delay) * 1000 + 200);
+      }
+    }
+
+    openButton.addEventListener("click", async () => {
+      document.body.classList.add("opened");
+      createPetals();
+
+      setTimeout(() => {
+        opening.classList.add("hidden");
+        document.querySelector(".page").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }, 650);
+
+      // Browsers may block autoplay; this is intentionally best-effort.
+      try {
+        await music.play();
+        musicButton.textContent = "Ⅱ";
+      } catch (e) {
+        musicButton.textContent = "♪";
+      }
+    });
+
+    musicButton.addEventListener("click", async () => {
+      if (music.paused) {
+        try {
+          await music.play();
+          musicButton.textContent = "Ⅱ";
+        } catch (e) {}
+      } else {
+        music.pause();
+        musicButton.textContent = "♪";
+      }
+    });
+  </script>
+</body>
+</html>
