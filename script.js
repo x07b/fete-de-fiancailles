@@ -12,7 +12,7 @@ const INVITATION = {
   time: "انطلاقاً من الساعة الثامنة ليلاً (20:00)",
   venue: "قاعة أفراح ليالي الأنس - منوبة",
 
-  openButton: "اضغط لفتح الدعوة"
+  openButton: "Ouvrir l'invitation"
 };
 
 const TRANSLATIONS = {
@@ -23,7 +23,7 @@ const TRANSLATIONS = {
   timeLabel: "التوقيت",
   venueLabel: "المكان",
   closing: "بكل الحب، ننتظركم لنشارككم هذه الفرحة",
-  backButton: "العودة إلى الظرف"
+  backButton:  "Retour"
 };
 
 function applyConfig() {
