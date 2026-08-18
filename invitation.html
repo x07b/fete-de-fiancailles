@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f5eee5">
+  <meta name="description" content="دعوة خطوبة ابتهال ومهدي">
+  <title>ابتهال & مهدي | تفاصيل الدعوة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="invitation-page">
+
+    <audio id="invitationMusic" preload="auto" loop>
+      <source src="assets/song.mp3" type="audio/mpeg">
+    </audio>
+
+    <button
+      class="music-toggle"
+      id="musicToggle"
+      type="button"
+      aria-label="تشغيل الموسيقى"
+      aria-pressed="false"
+    >
+      <span class="music-icon music-play">▶</span>
+      <span class="music-icon music-pause">Ⅱ</span>
+      <span class="music-ring"></span>
+    </button>
+
+  <div class="page-shell">
+
+    <header class="hero">
+      <div class="hero-decoration hero-decoration-left"></div>
+      <div class="hero-decoration hero-decoration-right"></div>
+
+      <div class="hero-monogram" aria-hidden="true">
+        <img src="assets/stamp.png" alt="" class="stamp-image">
+      </div>
+
+      <p class="bismillah">بسم الله الرحمن الرحيم</p>
+
+      <div class="ornament-line">
+        <span></span><i>❦</i><span></span>
+      </div>
+
+      <p class="quran">
+        «وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا
+        لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً»
+      </p>
+
+      <h1>
+        <span data-config="bride">ابتهال</span>
+        <small>&amp;</small>
+        <span data-config="groom">مهدي</span>
+      </h1>
+
+      <p class="subtitle" data-i18n="subtitle">دعوة خطوبة</p>
+    </header>
+
+    <section class="invitation-card">
+      <div class="card-floral card-floral-top"></div>
+
+      <div class="invitation-copy">
+        <p>
+          تتشرف عائلتا
+          <strong data-config="familyOne">أنور سلمان</strong>
+          و
+          <strong data-config="familyTwo">الحبيب سعيدي</strong>
+          بدعوتكم لمشاركتنا فرحتنا بمناسبة خطوبة ابننا
+          <strong data-config="groom">مهدي</strong>
+          على ابنتنا
+          <strong data-config="bride">ابتهال</strong>.
+        </p>
+
+        <p>
+          حضوركم يكتمل به أُنسُ ليلتنا<br>
+          وتُزهر به فرحتنا.
+        </p>
+      </div>
+
+      <div class="details-grid">
+        <article class="detail">
+          <div class="detail-icon">❦</div>
+          <span class="detail-label" data-i18n="dateLabel">التاريخ</span>
+          <strong data-config="date">السبت 26 سبتمبر 2026</strong>
+        </article>
+
+        <article class="detail">
+          <div class="detail-icon">◷</div>
+          <span class="detail-label" data-i18n="timeLabel">التوقيت</span>
+          <strong data-config="time">انطلاقاً من الساعة الثامنة ليلاً (20:00)</strong>
+        </article>
+
+        <article class="detail">
+          <div class="detail-icon">⌖</div>
+          <span class="detail-label" data-i18n="venueLabel">المكان</span>
+          <strong data-config="venue">يُحدد لاحقاً</strong>
+        </article>
+      </div>
+
+      <div class="photo-frame">
+        <picture>
+          <source media="(max-width: 768px)" srcset="assets/couple.jpg">
+          <img src="assets/couple.jpg" alt="ابتهال و مهدي">
+        </picture>
+      </div>
+
+      <div class="closing">
+        <div class="closing-line"></div>
+        <p data-i18n="closing">بكل الحب، ننتظركم لنشارككم هذه الفرحة</p>
+        <div class="monogram-small" aria-hidden="true"><img src="assets/stamp.png" alt=""></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <button class="back-button" id="backButton" type="button" data-i18n="backButton">العودة إلى الظرف</button>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
