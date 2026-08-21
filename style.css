@@ -1,0 +1,92 @@
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  overflow-x:hidden;
+  color:#57495f;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(225,210,239,.8),transparent 28%),
+    radial-gradient(circle at 90% 80%,rgba(215,200,234,.75),transparent 30%),
+    #e9e5ee;
+  font-family:"Amiri",serif;
+}
+button{font:inherit}
+.page{min-height:100vh}
+.cover-page{position:relative;display:grid;place-items:center;overflow:hidden;background:#b9a4c7}
+.cover-media,.cover-video,.cover-fallback{position:absolute;inset:0;width:100%;height:100%}
+.cover-video,.cover-fallback{object-fit:cover}
+.cover-fallback{z-index:0}
+.cover-video{z-index:1}
+.cover-mobile,.cover-mobile-fallback{display:none}
+.cover-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(40,26,55,.05),rgba(61,40,78,.18));backdrop-filter:blur(.2px)}
+.cover-content{position:relative;z-index:3;text-align:center;color:#fff;padding:35px 20px;text-shadow:0 2px 16px rgba(45,28,57,.25)}
+.cover-kicker,.cover-subtitle{margin:0;font-size:18px;letter-spacing:.5px}
+.cover-stamp{width:105px;height:105px;object-fit:contain;margin:16px auto;filter:drop-shadow(0 8px 16px rgba(35,20,25,.35))}
+.cover-content h1{font-family:"Cormorant Garamond",serif;font-size:clamp(62px,8vw,120px);font-weight:500;line-height:.9;margin:10px 0 18px}
+.cover-content h1 span{font-size:.58em;font-style:italic}
+.open-btn{
+  margin-top:32px;padding:13px 25px;border-radius:999px;border:1px solid rgba(255,255,255,.75);
+  background:rgba(255,255,255,.15);color:#fff;display:inline-flex;align-items:center;gap:12px;
+  cursor:pointer;backdrop-filter:blur(10px);transition:.35s ease;font-family:"Cormorant Garamond",serif;font-size:19px
+}
+.open-btn:hover{transform:translateY(-3px) scale(1.02);background:rgba(255,255,255,.28)}
+.open-icon{width:36px;height:36px;display:grid;place-items:center;border-radius:50%;background:rgba(112,80,135,.7)}
+
+.invitation-page{display:none;position:relative;padding:60px 20px 70px}
+.invitation-page.active{display:block;animation:reveal .8s ease both}
+@keyframes reveal{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+.invitation-card{
+  position:relative;overflow:hidden;width:min(100%,980px);margin:0 auto;padding:70px 70px 60px;
+  border-radius:34px;background:linear-gradient(135deg,rgba(255,255,255,.93),rgba(244,240,248,.95));
+  border:1px solid rgba(135,102,155,.18);box-shadow:0 25px 80px rgba(72,48,91,.17)
+}
+.invitation-card:before,.invitation-card:after{
+  content:"";position:absolute;width:230px;height:230px;border:1px solid rgba(153,116,171,.2);border-radius:50%
+}
+.invitation-card:before{top:-130px;right:-110px}
+.invitation-card:after{bottom:-145px;left:-100px}
+.card-decoration{position:absolute;width:230px;height:120px;opacity:.13;background:radial-gradient(circle at center,#a87cb5 2px,transparent 3px);background-size:28px 28px;pointer-events:none}
+.decoration-top{top:20px;left:20px}.decoration-bottom{bottom:20px;right:20px}
+
+.invitation-intro{text-align:center;position:relative;z-index:1}
+.basmala{font-size:clamp(27px,4vw,44px);font-weight:700;margin-bottom:17px}
+.mini-divider{color:#9a77a8;letter-spacing:5px;font-size:16px;margin-bottom:25px}
+.verse{max-width:790px;margin:0 auto;color:#62536b;font-size:clamp(22px,3vw,34px);line-height:2.05}
+.separator{font-size:28px;color:#9b78a8;margin:25px 0}
+.message{max-width:760px;margin:0 auto;font-size:clamp(20px,2.5vw,29px);line-height:2.05;color:#5c5063}
+.flowers-divider{font-size:27px;color:#a17aad;margin:30px 0 40px}
+
+.details-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;direction:rtl}
+.detail-box{min-height:150px;padding:24px 20px;border-radius:24px;border:1px solid rgba(151,112,170,.22);background:rgba(255,255,255,.38);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:7px}
+.detail-symbol{font-size:19px;color:#b48dc0}.detail-label{font-size:17px;color:#9b79a6}.detail-box strong{font-size:20px;line-height:1.55;font-weight:700}
+
+.memory-section{position:relative;z-index:1;width:100%;margin-top:55px;display:flex;flex-direction:column;align-items:center}
+.couple-photo{display:block;width:min(100%,540px);max-height:760px;object-fit:cover;object-position:center;border-radius:24px;box-shadow:0 18px 45px rgba(72,48,91,.16)}
+.save-date{margin:22px 0 14px;font-family:"Cormorant Garamond",serif;font-size:23px;letter-spacing:1px;color:#66546e}
+.bottom-stamp{width:82px;height:82px;object-fit:contain;filter:drop-shadow(0 8px 10px rgba(86,53,39,.22))}
+.back-wrapper{display:flex;justify-content:center;padding-top:28px}
+.go-back-btn{padding:11px 29px;border-radius:999px;border:1px solid #715875;background:rgba(255,255,255,.45);color:#5d4a61;cursor:pointer;transition:.3s}
+.go-back-btn:hover{background:#725a77;color:#fff;transform:translateY(-2px)}
+
+.music-toggle{position:fixed;right:24px;bottom:24px;z-index:1000;width:58px;height:58px;border-radius:50%;border:1px solid rgba(255,255,255,.7);background:linear-gradient(135deg,#ad8cbb,#745b85);color:#fff;font-size:21px;cursor:pointer;box-shadow:0 10px 30px rgba(75,48,90,.3);transition:.3s}
+.music-toggle:hover{transform:scale(1.08)}
+#petals{position:fixed;inset:0;pointer-events:none;z-index:20;overflow:hidden}
+.petal{position:absolute;top:-40px;width:13px;height:20px;border-radius:70% 30% 70% 30%;background:linear-gradient(135deg,#f5d9ef,#c89bc8);opacity:.8;animation:fall linear forwards}
+@keyframes fall{to{transform:translate(var(--x),110vh) rotate(540deg);opacity:.15}}
+
+@media(max-width:700px){
+  .cover-desktop,.cover-desktop-fallback{display:none}.cover-mobile,.cover-mobile-fallback{display:block}
+  .cover-content h1{font-size:68px}.cover-stamp{width:90px;height:90px}
+  .cover-kicker,.cover-subtitle{font-size:16px}
+  .invitation-page{padding:25px 12px 50px}
+  .invitation-card{width:100%;padding:42px 20px 42px;border-radius:26px}
+  .basmala{font-size:28px}.verse{font-size:22px;line-height:1.9}.message{font-size:21px;line-height:1.9}
+  .details-grid{grid-template-columns:1fr;gap:11px}.detail-box{min-height:125px;padding:18px}.detail-box strong{font-size:19px}
+  .memory-section{margin-top:40px}.couple-photo{width:100%;aspect-ratio:3/4;max-height:none;border-radius:20px}.save-date{font-size:21px}.bottom-stamp{width:70px;height:70px}
+  .music-toggle{width:50px;height:50px;right:15px;bottom:15px}.card-decoration{width:130px}
+}
+@media(min-width:701px){
+  .cover-desktop-fallback{display:block}
+}

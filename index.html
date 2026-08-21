@@ -2,38 +2,119 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#f5eee5">
-  <meta name="description" content="دعوة خطوبة ابتهال ومهدي">
-  <title>ابتهال & مهدي | دعوة خطوبة</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#b9a4c7">
+  <title>Ibtihel & Mahdi — دعوتنا</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="cover-page">
-  <main class="cover-screen">
-    <picture class="cover-art" aria-hidden="true">
-      <source media="(max-width: 768px)" srcset="assets/invitation-mobile.png">
-      <img src="assets/invitation-desktop.png" alt="">
-    </picture>
+  <audio id="backgroundMusic" loop preload="auto">
+    <source src="assets/song.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="musicToggle" class="music-toggle" aria-label="تشغيل أو إيقاف الموسيقى" title="Music">
+    <span id="musicIcon">♫</span>
+  </button>
+
+  <main id="coverPage" class="page cover-page">
+    <div class="cover-media">
+      <video class="cover-video cover-desktop" autoplay muted loop playsinline poster="assets/cover-desktop.jpg">
+        <source src="assets/desktop-cover.mp4" type="video/mp4">
+      </video>
+      <img class="cover-fallback cover-desktop-fallback" src="assets/invitation-desktop.png" alt="Ibtihel and Mahdi invitation cover">
+
+      <video class="cover-video cover-mobile" autoplay muted loop playsinline poster="assets/cover-mobile.jpg">
+        <source src="assets/mobile-cover.mp4" type="video/mp4">
+      </video>
+      <img class="cover-fallback cover-mobile-fallback" src="assets/invitation-mobile.png" alt="Ibtihel and Mahdi invitation cover">
+    </div>
 
     <div class="cover-overlay"></div>
 
     <div class="cover-content">
-      <div class="cover-mini-title" data-i18n="coverTitle">دعوة خطوبة</div>
-      <div class="cover-names">
-        <span data-config="bride">ابتهال</span>
-        <b>&amp;</b>
-        <span data-config="groom">مهدي</span>
-      </div>
+      <p class="cover-kicker">دعوة خطوبة</p>
 
-      <button class="open-invitation" id="openInvitation" type="button" data-i18n="openButton">
-        Ouvrir l'invitation
-        <span class="button-seal">✦</span>
+      <img src="assets/stamp.png" class="cover-stamp" alt="Ibtihel & Mahdi">
+
+      <h1>Ibtihel <span>&</span> Mahdi</h1>
+
+      <p class="cover-subtitle">قصة تبدأ بالحب وتدوم</p>
+
+      <button id="openInvitation" class="open-btn">
+        <span class="open-icon">✦</span>
+        <span>Ouvrir l'invitation</span>
       </button>
     </div>
+  </main>
+
+  <main id="invitationPage" class="page invitation-page" aria-hidden="true">
+
+    <div id="petals"></div>
+
+    <article class="invitation-card">
+
+      <div class="card-decoration decoration-top"></div>
+      <div class="card-decoration decoration-bottom"></div>
+
+      <section class="invitation-intro">
+        <div class="basmala">بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ</div>
+
+        <div class="mini-divider">❀ ─── ❀ ─── ❀</div>
+
+        <p class="verse">
+          ﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنْفُسِكُمْ أَزْوَاجًا
+          لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾
+        </p>
+
+        <div class="separator">✦</div>
+
+        <p class="message">
+          موش كل يوم نتخطبوا، و موش مع أي عبد نفرحوا.. أحنا اخترنا بعضنا و اخترناكم
+          انتوما بش تشاركونا فرحتنا و أول خطوة في ثنيتنا. جيبوا ضحكتكم المزيانة
+          معاكم و حضروا رواحكم للشطيح.
+        </p>
+
+        <div class="flowers-divider">❀ ✿ ❀</div>
+      </section>
+
+      <section class="details-grid">
+        <div class="detail-box">
+          <span class="detail-symbol">♡</span>
+          <span class="detail-label">المكان</span>
+          <strong>قاعة أفراح ليالي الأنس - منوبة</strong>
+        </div>
+
+        <div class="detail-box">
+          <span class="detail-symbol">✦</span>
+          <span class="detail-label">التاريخ</span>
+          <strong>السبت 26 سبتمبر 2026</strong>
+        </div>
+
+        <div class="detail-box">
+          <span class="detail-symbol">◷</span>
+          <span class="detail-label">الوقت</span>
+          <strong>الثامنة ليلاً (20:00)</strong>
+        </div>
+      </section>
+
+      <section class="memory-section">
+        <img src="assets/couple.jpg" alt="Ibtihel & Mahdi" class="couple-photo">
+
+        <p class="save-date">Save the date <span>🌸</span></p>
+
+        <img src="assets/stamp.png" alt="Ibtihel & Mahdi" class="bottom-stamp">
+      </section>
+
+    </article>
+
+    <div class="back-wrapper">
+      <button id="goBackBtn" class="go-back-btn">Go Back</button>
+    </div>
+
   </main>
 
   <script src="script.js"></script>

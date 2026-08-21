@@ -1,125 +1,65 @@
-/*
-  EDIT ONLY THIS OBJECT to personalize the invitation.
-  The HTML is intentionally data-driven so names/date/families/etc.
-  can be changed without rewriting the page.
-*/
-const INVITATION = {
-  bride: "ابتهال",
-  groom: "مهدي",
-  initials: "I & M",
+const music = document.getElementById("backgroundMusic");
+const musicToggle = document.getElementById("musicToggle");
+const musicIcon = document.getElementById("musicIcon");
+const openInvitation = document.getElementById("openInvitation");
+const goBackBtn = document.getElementById("goBackBtn");
+const coverPage = document.getElementById("coverPage");
+const invitationPage = document.getElementById("invitationPage");
+const petals = document.getElementById("petals");
 
-  date: "السبت 26 سبتمبر 2026",
-  time: "انطلاقاً من الساعة الثامنة ليلاً (20:00)",
-  venue: "قاعة أفراح ليالي الأنس - منوبة",
+music.volume = 0.55;
 
-  openButton: "Ouvrir l'invitation"
-};
-
-const TRANSLATIONS = {
-  coverTitle: "دعوة خطوبة",
-  openButton: INVITATION.openButton,
-  subtitle: "دعوة خطوبة",
-  dateLabel: "التاريخ",
-  timeLabel: "التوقيت",
-  venueLabel: "المكان",
-  closing: "بكل الحب، ننتظركم لنشارككم هذه الفرحة",
-  backButton:  "Retour"
-};
-
-function applyConfig() {
-  document.querySelectorAll("[data-config]").forEach((element) => {
-    const key = element.dataset.config;
-    if (Object.prototype.hasOwnProperty.call(INVITATION, key)) {
-      element.textContent = INVITATION[key];
-    }
-  });
-
-  document.querySelectorAll("[data-i18n]").forEach((element) => {
-    const key = element.dataset.i18n;
-    if (Object.prototype.hasOwnProperty.call(TRANSLATIONS, key)) {
-      element.textContent = TRANSLATIONS[key];
-    }
-  });
-
-  document.title = `${INVITATION.bride} & ${INVITATION.groom} | دعوة خطوبة`;
+async function startMusic() {
+  try {
+    await music.play();
+    musicIcon.textContent = "❚❚";
+  } catch (error) {
+    // Mobile browsers may block autoplay until the first interaction.
+  }
 }
 
-function openInvitation() {
-  const button = document.getElementById("openInvitation");
-  if (!button) return;
+window.addEventListener("load", startMusic);
 
-  button.disabled = true;
-  button.style.transform = "scale(.96)";
+document.addEventListener("pointerdown", () => {
+  if (music.paused) startMusic();
+}, { once: true });
 
-  // A short "envelope opening" feel before navigating.
-  document.body.classList.add("is-opening");
-
-  window.setTimeout(() => {
-    window.location.href = "invitation.html";
-  }, 420);
-}
-
-
-function setupMusic() {
-  const music = document.getElementById("invitationMusic");
-  const toggle = document.getElementById("musicToggle");
-
-  if (!music || !toggle) return;
-
-  const setPlayingUI = (playing) => {
-    toggle.classList.toggle("playing", playing);
-    toggle.setAttribute("aria-pressed", String(playing));
-    toggle.setAttribute(
-      "aria-label",
-      playing ? "إيقاف الموسيقى" : "تشغيل الموسيقى"
-    );
-  };
-
-  const playMusic = () => {
-    music.play()
-      .then(() => setPlayingUI(true))
-      .catch(() => setPlayingUI(false));
-  };
-
-  const pauseMusic = () => {
+musicToggle.addEventListener("click", async (event) => {
+  event.stopPropagation();
+  if (music.paused) {
+    await startMusic();
+  } else {
     music.pause();
-    setPlayingUI(false);
-  };
-
-  toggle.addEventListener("click", () => {
-    if (music.paused) {
-      playMusic();
-    } else {
-      pauseMusic();
-    }
-  });
-
-  music.addEventListener("play", () => setPlayingUI(true));
-  music.addEventListener("pause", () => setPlayingUI(false));
-
-  // Because the previous page was opened by a user click, try to start
-  // immediately when invitation.html loads. If the browser blocks it,
-  // the corner button remains available.
-  playMusic();
-}
-
-function goBackToEnvelope() {
-  window.location.href = "index.html";
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  applyConfig();
-
-  const openButton = document.getElementById("openInvitation");
-  const backButton = document.getElementById("backButton");
-
-  if (openButton) {
-    openButton.addEventListener("click", openInvitation);
+    musicIcon.textContent = "♫";
   }
-
-  if (backButton) {
-    backButton.addEventListener("click", goBackToEnvelope);
-  }
-
-  setupMusic();
 });
+
+openInvitation.addEventListener("click", () => {
+  startMusic();
+  coverPage.style.display = "none";
+  invitationPage.classList.add("active");
+  invitationPage.setAttribute("aria-hidden", "false");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  createPetals(45);
+});
+
+goBackBtn.addEventListener("click", () => {
+  invitationPage.classList.remove("active");
+  invitationPage.setAttribute("aria-hidden", "true");
+  coverPage.style.display = "grid";
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  // Music intentionally continues without restarting.
+});
+
+function createPetals(count) {
+  petals.innerHTML = "";
+  for (let i = 0; i < count; i++) {
+    const petal = document.createElement("span");
+    petal.className = "petal";
+    petal.style.left = `${Math.random() * 100}%`;
+    petal.style.animationDuration = `${5 + Math.random() * 6}s`;
+    petal.style.animationDelay = `${Math.random() * 2}s`;
+    petal.style.setProperty("--x", `${-100 + Math.random() * 200}px`);
+    petals.appendChild(petal);
+  }
+}
