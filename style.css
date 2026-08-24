@@ -53,59 +53,19 @@ button {
 ========================================= */
 
 @font-face {
-  font-family: "SignFont";
-
-  src: url(
-    "./fonts/VerandahReverie_PERSONAL_USE_ONLY.otf"
-  ) format("opentype");
-}
-
-@font-face {
   font-family: "SignFont2";
 
-  src: url(
-    "./fonts/Housemail Script Trial.otf"
-  ) format("opentype");
+  src:
+    url("./fonts/Housemail Script Trial.otf")
+    format("opentype");
 }
 
 @font-face {
   font-family: "SignFont3";
 
-  src: url(
-    "./fonts/Sunset Palm - Script Trial.otf"
-  ) format("opentype");
-}
-
-@font-face {
-  font-family: "SignFont4";
-
-  src: url(
-    "./fonts/Emily Street.ttf"
-  ) format("truetype");
-}
-
-@font-face {
-  font-family: "SignFont5";
-
-  src: url(
-    "./fonts/Softspoken-ScriptFreeDemo.otf"
-  ) format("opentype");
-}
-
-@font-face {
-  font-family: "SignFont6";
-
-  src: url(
-    "./fonts/Cartefield_PERSONAL_USE_ONLY.otf"
-  ) format("opentype");
-}
-
-@font-face {
-  font-family: "SignFont7";
-
-  src: url(
-    "./fonts/Midstar_Personal_Use.otf"
-  ) format("opentype");
+  src:
+    url("./fonts/Sunset Palm - Script Trial.otf")
+    format("opentype");
 }
 
 
@@ -126,6 +86,11 @@ button {
 
   background: #b9a4c7;
 }
+
+
+/* =========================================
+   COVER MEDIA
+========================================= */
 
 .cover-media,
 .cover-video,
@@ -168,11 +133,12 @@ button {
 
   z-index: 2;
 
-  background: linear-gradient(
-    180deg,
-    rgba(40, 26, 55, 0.05),
-    rgba(61, 40, 78, 0.18)
-  );
+  background:
+    linear-gradient(
+      180deg,
+      rgba(40, 26, 55, 0.05),
+      rgba(61, 40, 78, 0.18)
+    );
 
   backdrop-filter: blur(0.2px);
 }
@@ -200,49 +166,33 @@ button {
     rgba(45, 28, 57, 0.25);
 }
 
-.cover-kicker,
 .cover-subtitle {
   margin: 0;
 
-  font-family: "SignFont2", serif;
+  font-family:
+    "SignFont2",
+    serif;
 
   font-size: 40px;
+
   font-weight: 400;
 
   letter-spacing: 0.5px;
 }
 
-.cover-stamp {
-  display: block;
-
-  width: 105px;
-  height: 105px;
-
-  margin: 16px auto;
-
-  object-fit: contain;
-
-  filter:
-    drop-shadow(
-      0 8px 16px
-      rgba(35, 20, 25, 0.35)
-    );
-}
-
 .cover-content h1 {
   margin: 10px 0 18px;
 
-  font-family: "SignFont3", serif;
+  font-family:
+    "SignFont3",
+    serif;
 
-  font-size: clamp(62px, 8vw, 120px);
+  font-size:
+    clamp(62px, 8vw, 120px);
+
   font-weight: 500;
 
   line-height: 0.9;
-}
-
-.cover-content h1 span {
-  font-size: 0.58em;
-  font-style: italic;
 }
 
 
@@ -261,7 +211,8 @@ button {
 
   padding: 13px 25px;
 
-  border: 1px solid
+  border:
+    1px solid
     rgba(255, 255, 255, 0.75);
 
   border-radius: 999px;
@@ -295,6 +246,7 @@ button {
 
 .open-icon {
   display: grid;
+
   place-items: center;
 
   width: 36px;
@@ -351,7 +303,8 @@ button {
 .invitation-card {
   position: relative;
 
-  width: min(100%, 980px);
+  width:
+    min(100%, 980px);
 
   margin: 0 auto;
 
@@ -359,16 +312,18 @@ button {
 
   overflow: hidden;
 
-  border: 1px solid
+  border:
+    1px solid
     rgba(135, 102, 155, 0.18);
 
   border-radius: 34px;
 
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.93),
-    rgba(244, 240, 248, 0.95)
-  );
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.93),
+      rgba(244, 240, 248, 0.95)
+    );
 
   box-shadow:
     0 25px 80px
@@ -384,7 +339,8 @@ button {
   width: 230px;
   height: 230px;
 
-  border: 1px solid
+  border:
+    1px solid
     rgba(153, 116, 171, 0.2);
 
   border-radius: 50%;
@@ -404,7 +360,7 @@ button {
 
 
 /* =========================================
-   CARD DECORATION
+   CARD DECORATIONS
 ========================================= */
 
 .card-decoration {
@@ -514,7 +470,6 @@ button {
 
 /* =========================================
    EVENT DETAILS
-   DESKTOP: 3 HORIZONTAL BOXES
 ========================================= */
 
 .details-grid {
@@ -542,7 +497,7 @@ button {
 
 
 /* =========================================
-   DATE & TIME BOXES
+   DATE AND TIME
 ========================================= */
 
 .detail-box {
@@ -563,16 +518,18 @@ button {
 
   gap: 8px;
 
-  border: 1px solid
+  border:
+    1px solid
     rgba(151, 112, 170, 0.22);
 
   border-radius: 26px;
 
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.68),
-    rgba(255, 255, 255, 0.32)
-  );
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.68),
+      rgba(255, 255, 255, 0.32)
+    );
 
   box-shadow:
     0 10px 30px
@@ -625,6 +582,7 @@ button {
   color: #57495f;
 
   font-size: 20px;
+
   font-weight: 700;
 
   line-height: 1.55;
@@ -646,27 +604,34 @@ button {
 
   min-width: 0;
 
-  height: 185px;
+  height: 100%;
 
   overflow: hidden;
 
-  border: 1px solid
+  border:
+    1px solid
     rgba(151, 112, 170, 0.22);
 
   border-radius: 26px;
 
   background:
-    rgba(255, 255, 255, 0.55);
-
-  box-shadow:
-    0 10px 30px
-    rgba(72, 48, 91, 0.05);
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(244, 240, 248, 0.96)
+    );
 
   color: inherit;
 
   text-decoration: none;
 
   cursor: pointer;
+
+  isolation: isolate;
+
+  box-shadow:
+    0 8px 20px
+    rgba(72, 48, 91, 0.06);
 
   transition:
     transform 0.3s ease,
@@ -675,11 +640,11 @@ button {
 
 .location-card:hover {
   transform:
-    translateY(-4px);
+    translateY(-3px);
 
   box-shadow:
-    0 18px 35px
-    rgba(72, 48, 91, 0.12);
+    0 14px 28px
+    rgba(72, 48, 91, 0.1);
 }
 
 
@@ -690,21 +655,22 @@ button {
 .location-header {
   position: relative;
 
-  z-index: 2;
+  z-index: 3;
 
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
-  gap: 28px;
+  gap: 18px;
 
   min-height: 74px;
 
-  padding: 12px 14px;
+  padding: 12px 16px;
 
   background:
-    rgba(250, 248, 252, 0.96);
+    rgba(250, 248, 252, 0.98);
 
   text-align: center;
 }
@@ -715,10 +681,12 @@ button {
   flex-shrink: 0;
 
   align-items: center;
+
   justify-content: center;
 
-  width: 36px;
-  height: 36px;
+  width: 38px;
+
+  height: 38px;
 
   border-radius: 50%;
 
@@ -758,10 +726,6 @@ button {
   overflow-wrap: break-word;
 }
 
-.location-address {
-  display: none;
-}
-
 
 /* =========================================
    MAP
@@ -769,6 +733,8 @@ button {
 
 .map-preview {
   position: relative;
+
+  z-index: 1;
 
   flex: 1;
 
@@ -784,12 +750,20 @@ button {
 .map-preview iframe {
   display: block;
 
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
   width: 100%;
   height: 100%;
 
   border: 0;
 
   pointer-events: none;
+
+  transform:
+    translateZ(0);
 
   filter:
     saturate(0.8)
@@ -803,29 +777,30 @@ button {
 ========================================= */
 
 .open-map {
-  position: absolute;
+  position: relative;
 
-  right: 0;
-  bottom: 0;
-  left: 0;
-
-  z-index: 3;
+  z-index: 4;
 
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   gap: 8px;
 
+  min-height: 36px;
+
   padding: 9px;
 
   background:
-    rgba(255, 255, 255, 0.9);
+    rgba(255, 255, 255, 0.96);
 
   color: #715875;
 
   font-size: 13px;
+
+  text-align: center;
 
   backdrop-filter: blur(8px);
 }
@@ -858,11 +833,13 @@ button {
 .couple-photo {
   display: block;
 
-  width: min(100%, 620px);
+  width:
+    min(100%, 620px);
 
   height: auto;
 
   object-fit: cover;
+
   object-position: center;
 
   border-radius: 20px;
@@ -890,6 +867,7 @@ button {
 
 .bottom-stamp {
   width: 82px;
+
   height: 82px;
 
   object-fit: contain;
@@ -917,7 +895,8 @@ button {
 .go-back-btn {
   padding: 11px 29px;
 
-  border: 1px solid #715875;
+  border:
+    1px solid #715875;
 
   border-radius: 999px;
 
@@ -949,6 +928,7 @@ button {
   position: fixed;
 
   right: 24px;
+
   bottom: 24px;
 
   z-index: 1000;
@@ -956,21 +936,25 @@ button {
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   width: 58px;
+
   height: 58px;
 
-  border: 1px solid
+  border:
+    1px solid
     rgba(255, 255, 255, 0.7);
 
   border-radius: 50%;
 
-  background: linear-gradient(
-    135deg,
-    #ad8cbb,
-    #745b85
-  );
+  background:
+    linear-gradient(
+      135deg,
+      #ad8cbb,
+      #745b85
+    );
 
   color: #ffffff;
 
@@ -986,7 +970,8 @@ button {
 }
 
 .music-toggle:hover {
-  transform: scale(1.08);
+  transform:
+    scale(1.08);
 }
 
 
@@ -1003,6 +988,7 @@ button {
   z-index: 20;
 
   width: 100%;
+
   height: 100%;
 
   overflow: hidden;
@@ -1016,16 +1002,18 @@ button {
   top: -40px;
 
   width: 13px;
+
   height: 20px;
 
   border-radius:
     70% 30% 70% 30%;
 
-  background: linear-gradient(
-    135deg,
-    #f5d9ef,
-    #c89bc8
-  );
+  background:
+    linear-gradient(
+      135deg,
+      #f5d9ef,
+      #c89bc8
+    );
 
   opacity: 0.8;
 
@@ -1059,20 +1047,17 @@ button {
 
   .invitation-page {
     padding:
-      40px 16px
-      60px;
+      40px 16px 60px;
   }
 
   .invitation-card {
     padding:
-      55px 35px
-      50px;
+      55px 35px 50px;
   }
 
   .details-grid {
     grid-template-columns:
-      1fr
-      1fr;
+      1fr 1fr;
 
     gap: 14px;
   }
@@ -1086,6 +1071,7 @@ button {
   .detail-box {
     min-height: 160px;
   }
+
 }
 
 
@@ -1094,13 +1080,6 @@ button {
 ========================================= */
 
 @media (max-width: 700px) {
-
-  body {
-    width: 100%;
-  }
-
-
-  /* COVER */
 
   .cover-desktop,
   .cover-desktop-fallback {
@@ -1122,15 +1101,9 @@ button {
       clamp(58px, 18vw, 82px);
   }
 
-  .cover-kicker,
   .cover-subtitle {
     font-size:
       clamp(28px, 8vw, 35px);
-  }
-
-  .cover-stamp {
-    width: 85px;
-    height: 85px;
   }
 
   .open-btn {
@@ -1143,26 +1116,20 @@ button {
   }
 
 
-  /* INVITATION PAGE */
-
   .invitation-page {
     padding:
-      25px 12px
-      50px;
+      25px 12px 50px;
   }
 
   .invitation-card {
     width: 100%;
 
     padding:
-      42px 20px
-      42px;
+      42px 20px 42px;
 
     border-radius: 26px;
   }
 
-
-  /* TEXT */
 
   .basmala {
     font-size:
@@ -1197,25 +1164,18 @@ button {
 
   .flowers-divider {
     margin:
-      25px 0
-      30px;
+      25px 0 30px;
 
     font-size: 24px;
   }
 
 
-  /* DETAILS */
-
   .details-grid {
     grid-template-columns: 1fr;
 
     gap: 13px;
-
-    width: 100%;
   }
 
-
-  /* DATE & TIME */
 
   .detail-box {
     min-height: 125px;
@@ -1228,6 +1188,7 @@ button {
 
   .detail-symbol {
     width: 36px;
+
     height: 36px;
 
     font-size: 17px;
@@ -1241,8 +1202,6 @@ button {
     font-size: 19px;
   }
 
-
-  /* LOCATION */
 
   .location-card {
     grid-column: auto;
@@ -1261,6 +1220,7 @@ button {
 
   .location-icon {
     width: 40px;
+
     height: 40px;
 
     font-size: 18px;
@@ -1274,21 +1234,12 @@ button {
     font-size: 17px;
   }
 
-
-  /* MAP */
-
-  .map-preview {
-    min-height: 0;
-  }
-
   .open-map {
     padding: 10px;
 
     font-size: 14px;
   }
 
-
-  /* PHOTO */
 
   .memory-section {
     margin-top: 40px;
@@ -1302,8 +1253,7 @@ button {
 
   .save-date {
     margin:
-      20px 0
-      12px;
+      20px 0 12px;
 
     font-size:
       clamp(36px, 11vw, 44px);
@@ -1311,31 +1261,28 @@ button {
 
   .bottom-stamp {
     width: 70px;
+
     height: 70px;
   }
 
-
-  /* BACK BUTTON */
 
   .back-wrapper {
     padding-top: 24px;
   }
 
 
-  /* MUSIC */
-
   .music-toggle {
     right: 15px;
+
     bottom: 15px;
 
     width: 50px;
+
     height: 50px;
 
     font-size: 18px;
   }
 
-
-  /* DECORATION */
 
   .card-decoration {
     width: 130px;
@@ -1343,13 +1290,16 @@ button {
 
   .decoration-top {
     top: 10px;
+
     left: 10px;
   }
 
   .decoration-bottom {
     right: 10px;
+
     bottom: 10px;
   }
+
 }
 
 
@@ -1361,14 +1311,12 @@ button {
 
   .invitation-page {
     padding:
-      16px 8px
-      40px;
+      16px 8px 40px;
   }
 
   .invitation-card {
     padding:
-      35px 15px
-      35px;
+      35px 15px;
 
     border-radius: 22px;
   }
@@ -1396,11 +1344,12 @@ button {
   .location-info strong {
     font-size: 16px;
   }
+
 }
 
 
 /* =========================================
-   DESKTOP COVER FALLBACK
+   DESKTOP FALLBACK
 ========================================= */
 
 @media (min-width: 701px) {
@@ -1408,4 +1357,5 @@ button {
   .cover-desktop-fallback {
     display: block;
   }
+
 }
