@@ -12,31 +12,23 @@ const petals = document.getElementById("petals");
 
 
 /* =========================================
-   MUSIC AUTOPLAY
+   MUSIC
 ========================================= */
 
 music.volume = 0.55;
 
 
-/* =========================================
-   START MUSIC AUTOMATICALLY
-========================================= */
+/* Start music */
 
 async function startMusic() {
   try {
-
     await music.play();
 
     musicIcon.textContent = "❚❚";
 
-    console.log("Music started automatically.");
-
   } catch (error) {
 
-    console.log(
-      "Browser blocked autoplay:",
-      error
-    );
+    console.log("Music could not start:", error);
 
     musicIcon.textContent = "♫";
 
@@ -45,144 +37,131 @@ async function startMusic() {
 
 
 /* =========================================
-   START MUSIC IMMEDIATELY
-========================================= */
-
-startMusic();
-
-
-/* Try again when everything is loaded */
-
-window.addEventListener(
-  "load",
-  () => {
-
-    startMusic();
-
-  }
-);
-
-
-/* =========================================
    MUSIC BUTTON
 ========================================= */
 
-musicToggle.addEventListener(
-  "click",
-  async () => {
+musicToggle.addEventListener("click", async (event) => {
 
-    if (music.paused) {
+  event.stopPropagation();
 
-      await startMusic();
+  if (music.paused) {
 
-    } else {
+    await startMusic();
 
-      music.pause();
+  } else {
 
-      musicIcon.textContent = "♫";
+    music.pause();
 
-    }
+    musicIcon.textContent = "♫";
 
   }
-);
+
+});
 
 
 /* =========================================
    OPEN INVITATION
 ========================================= */
 
-openInvitation.addEventListener(
-  "click",
-  () => {
+openInvitation.addEventListener("click", async () => {
 
-    /* Hide cover page */
+  /*
+    IMPORTANT:
 
-    coverPage.style.display = "none";
+    This click is a user interaction,
+    so the browser allows the music
+    to start here.
+  */
 
-
-    /* Show invitation page */
-
-    invitationPage.classList.add(
-      "active"
-    );
-
-    invitationPage.inert = false;
-
-    invitationPage.setAttribute(
-      "aria-hidden",
-      "false"
-    );
+  await startMusic();
 
 
-    /* Go to top */
+  /* Hide cover page */
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+  coverPage.style.display = "none";
 
 
-    /* Create petals */
+  /* Show invitation page */
 
-    requestAnimationFrame(
-      () => {
+  invitationPage.classList.add("active");
 
-        createPetals(45);
+  invitationPage.inert = false;
 
-      }
-    );
+  invitationPage.setAttribute(
+    "aria-hidden",
+    "false"
+  );
 
-  }
-);
+
+  /* Move focus */
+
+  goBackBtn.focus();
+
+
+  /* Go to top */
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+
+  /* Create petals */
+
+  requestAnimationFrame(() => {
+
+    createPetals(45);
+
+  });
+
+});
 
 
 /* =========================================
    GO BACK
 ========================================= */
 
-goBackBtn.addEventListener(
-  "click",
-  () => {
+goBackBtn.addEventListener("click", () => {
 
-    /* Move focus outside invitation
-       before hiding it */
+  /*
+    Move focus first.
 
-    openInvitation.focus();
+    This prevents the aria-hidden warning.
+  */
 
-
-    /* Show cover page */
-
-    coverPage.style.display = "grid";
+  openInvitation.focus();
 
 
-    /* Hide invitation page */
+  /* Hide invitation */
 
-    invitationPage.classList.remove(
-      "active"
-    );
+  invitationPage.classList.remove("active");
 
-    invitationPage.inert = true;
+  invitationPage.inert = true;
 
-    invitationPage.setAttribute(
-      "aria-hidden",
-      "true"
-    );
+  invitationPage.setAttribute(
+    "aria-hidden",
+    "true"
+  );
 
 
-    /* Remove petals */
+  /* Show cover */
 
-    petals.innerHTML = "";
+  coverPage.style.display = "grid";
 
 
-    /* Go to top */
+  /* Remove petals */
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+  petals.innerHTML = "";
 
-  }
-);
+
+  /* Go to top */
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+});
 
 
 /* =========================================
@@ -191,12 +170,12 @@ goBackBtn.addEventListener(
 
 function createPetals(count) {
 
-  /* Remove old petals */
+  /* Remove existing petals */
 
   petals.innerHTML = "";
 
 
-  /* Get full invitation height */
+  /* Get invitation height */
 
   const pageHeight =
     invitationPage.scrollHeight;
@@ -204,22 +183,13 @@ function createPetals(count) {
 
   /* Create petals */
 
-  for (
-    let i = 0;
-    i < count;
-    i++
-  ) {
-
-    /* Create petal */
+  for (let i = 0; i < count; i++) {
 
     const petal =
       document.createElement("span");
 
 
-    /* Add class */
-
-    petal.className =
-      "petal";
+    petal.className = "petal";
 
 
     /* Random horizontal position */
@@ -228,13 +198,13 @@ function createPetals(count) {
       `${Math.random() * 100}%`;
 
 
-    /* Random animation duration */
+    /* Random duration */
 
     petal.style.animationDuration =
       `${8 + Math.random() * 8}s`;
 
 
-    /* Random animation delay */
+    /* Random delay */
 
     petal.style.animationDelay =
       `${Math.random() * 3}s`;
@@ -248,7 +218,7 @@ function createPetals(count) {
     );
 
 
-    /* Fall through entire page */
+    /* Full falling distance */
 
     petal.style.setProperty(
       "--fall-distance",
@@ -258,9 +228,7 @@ function createPetals(count) {
 
     /* Add petal */
 
-    petals.appendChild(
-      petal
-    );
+    petals.appendChild(petal);
 
   }
 
