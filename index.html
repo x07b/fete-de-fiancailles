@@ -4,42 +4,9 @@
 
 <head>
 
-  <meta property="og:type" content="website">
-
-<meta property="og:title" content="Fête de Fiançailles — Mahdi & Ibtihel">
-
-<meta
-  property="og:description"
-  content="Vous êtes chaleureusement invités à célébrer notre fête de fiançailles."
->
-
-<meta
-  property="og:image"
-  content="https://fete-de-fiancailles.vercel.app/assets/preview.png"
->
-
-<meta
-  property="og:url"
-  content="https://fete-de-fiancailles.vercel.app/"
->
-
-<meta name="twitter:card" content="summary_large_image">
-
-<meta
-  name="twitter:title"
-  content="Fête de Fiançailles — Mahdi & Ibtihel"
->
-
-<meta
-  name="twitter:description"
-  content="Vous êtes chaleureusement invités à célébrer notre fête de fiançailles."
->
-
-<meta
-  name="twitter:image"
-  content="https://fete-de-fiancailles.vercel.app/assets/preview.png"
->
-
+  <!-- =========================================
+       BASIC SETTINGS
+  ========================================== -->
 
   <meta charset="UTF-8">
 
@@ -53,10 +20,103 @@
     content="#b9a4c7"
   >
 
-  <title>Ibtihel & Mahdi — دعوتنا</title>
+
+  <!-- =========================================
+       TITLE & DESCRIPTION
+  ========================================== -->
+
+  <title>Fête de Fiançailles — Mahdi & Ibtihel</title>
+
+  <meta
+    name="description"
+    content="Vous êtes chaleureusement invités à célébrer la fête de fiançailles de Mahdi & Ibtihel."
+  >
 
 
-  <!-- GOOGLE FONTS -->
+  <!-- =========================================
+       OPEN GRAPH
+       WHATSAPP / FACEBOOK / MESSENGER
+  ========================================== -->
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="Fête de Fiançailles — Mahdi & Ibtihel"
+  >
+
+  <meta
+    property="og:description"
+    content="Vous êtes chaleureusement invités à célébrer notre fête de fiançailles."
+  >
+
+  <meta
+    property="og:url"
+    content="https://fete-de-fiancailles.vercel.app/"
+  >
+
+  <meta
+    property="og:image"
+    content="https://fete-de-fiancailles.vercel.app/assets/preview.png"
+  >
+
+  <meta
+    property="og:image:secure_url"
+    content="https://fete-de-fiancailles.vercel.app/assets/preview.png"
+  >
+
+  <meta
+    property="og:image:type"
+    content="image/png"
+  >
+
+  <meta
+    property="og:image:width"
+    content="1200"
+  >
+
+  <meta
+    property="og:image:height"
+    content="630"
+  >
+
+  <meta
+    property="og:site_name"
+    content="Fête de Fiançailles"
+  >
+
+
+  <!-- =========================================
+       TWITTER / SOCIAL PREVIEW
+  ========================================== -->
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
+
+  <meta
+    name="twitter:title"
+    content="Fête de Fiançailles — Mahdi & Ibtihel"
+  >
+
+  <meta
+    name="twitter:description"
+    content="Vous êtes chaleureusement invités à célébrer notre fête de fiançailles."
+  >
+
+  <meta
+    name="twitter:image"
+    content="https://fete-de-fiancailles.vercel.app/assets/preview.png"
+  >
+
+
+  <!-- =========================================
+       GOOGLE FONTS
+  ========================================== -->
 
   <link
     rel="preconnect"
@@ -75,7 +135,9 @@
   >
 
 
-  <!-- CSS -->
+  <!-- =========================================
+       CSS
+  ========================================== -->
 
   <link
     rel="stylesheet"
@@ -94,16 +156,17 @@
 
   <audio
     id="backgroundMusic"
-    loop
     autoplay
+    loop
     preload="auto"
   >
+
     <source
       src="assets/song.mp3"
       type="audio/mpeg"
     >
-  </audio>
 
+  </audio>
 
 
   <!-- =========================================
@@ -117,9 +180,12 @@
     title="Music"
     type="button"
   >
-    <span id="musicIcon">♫</span>
-  </button>
 
+    <span id="musicIcon">
+      ♫
+    </span>
+
+  </button>
 
 
   <!-- =========================================
@@ -147,19 +213,21 @@
         playsinline
         poster="assets/desktop-cover.png"
       >
+
         <source
           src="assets/desktop-cover.mp4"
           type="video/mp4"
         >
+
       </video>
 
 
-      <!-- DESKTOP FALLBACK -->
+      <!-- DESKTOP FALLBACK IMAGE -->
 
       <img
         class="cover-fallback cover-desktop-fallback"
         src="assets/invitation-desktop.png"
-        alt="Ibtihel and Mahdi invitation cover"
+        alt="Invitation de fiançailles de Mahdi et Ibtihel"
       >
 
 
@@ -173,23 +241,25 @@
         playsinline
         poster="assets/mobile-cover.png"
       >
+
         <source
           src="assets/mobile-cover.mp4"
           type="video/mp4"
         >
+
       </video>
 
 
-      <!-- MOBILE FALLBACK -->
+      <!-- MOBILE FALLBACK IMAGE -->
 
       <img
         class="cover-fallback cover-mobile-fallback"
         src="assets/invitation-mobile.png"
-        alt="Ibtihel and Mahdi invitation cover"
+        alt="Invitation de fiançailles de Mahdi et Ibtihel"
       >
 
-    </div>
 
+    </div>
 
 
     <!-- COVER OVERLAY -->
@@ -197,10 +267,10 @@
     <div class="cover-overlay"></div>
 
 
-
     <!-- COVER CONTENT -->
 
     <div class="cover-content">
+
 
       <h1>
         Fête de Fiançailles
@@ -208,7 +278,13 @@
 
 
       <p class="cover-subtitle">
-        Mahdi <span>&</span> Ibtihel
+
+        Mahdi
+
+        <span>&</span>
+
+        Ibtihel
+
       </p>
 
 
@@ -228,10 +304,11 @@
 
       </button>
 
+
     </div>
 
-  </main>
 
+  </main>
 
 
   <!-- =========================================
@@ -251,7 +328,6 @@
     <div id="petals"></div>
 
 
-
     <!-- =========================================
          INVITATION CARD
     ========================================== -->
@@ -259,7 +335,7 @@
     <article class="invitation-card">
 
 
-      <!-- DECORATIONS -->
+      <!-- CARD DECORATIONS -->
 
       <div
         class="card-decoration decoration-top"
@@ -270,9 +346,8 @@
       ></div>
 
 
-
       <!-- =========================================
-           INVITATION TEXT
+           INVITATION INTRO
       ========================================== -->
 
       <section class="invitation-intro">
@@ -310,8 +385,10 @@
         <p class="message">
 
           موش كل يوم نتخطبوا، و موش مع أي عبد نفرحوا..
+
           أحنا اخترنا بعضنا و اخترناكم انتوما بش تشاركونا فرحتنا
           و أول خطوة في ثنيتنا.
+
           جيبوا ضحكتكم المزيانة معاكم
           و حضروا رواحكم للشطيح.
 
@@ -324,8 +401,8 @@
 
         </div>
 
-      </section>
 
+      </section>
 
 
       <!-- =========================================
@@ -335,8 +412,9 @@
       <section class="details-grid">
 
 
-
-        <!-- LOCATION -->
+        <!-- =========================================
+             LOCATION
+        ========================================== -->
 
         <a
           href="https://maps.app.goo.gl/2G6iGyXoma5h1pgb8"
@@ -355,12 +433,18 @@
             <div class="location-info">
 
               <span class="location-label">
+
                 Localisation
+
               </span>
 
+
               <strong>
+
                 Espace Layali Al Ons - Manouba
+
               </strong>
+
 
             </div>
 
@@ -371,15 +455,11 @@
 
             </div>
 
+
           </div>
 
 
-
-          <!-- MAP -->
-
-       <!-- MAP -->
-
-       <!-- MAP -->
+          <!-- GOOGLE MAP -->
 
           <div class="map-preview">
 
@@ -388,7 +468,7 @@
               width="600"
               height="450"
               style="border: 0;"
-              allowfullscreen=""
+              allowfullscreen
               loading="lazy"
               referrerpolicy="strict-origin-when-cross-origin"
               title="Espace Layali Al Ons - Manouba"
@@ -402,22 +482,29 @@
           <div class="open-map">
 
             <span class="map-arrow">
+
               ←
+
             </span>
 
             <span>
+
               Voir sur Google Maps
+
             </span>
 
           </div>
 
+
         </a>
 
 
-
-        <!-- DATE -->
+        <!-- =========================================
+             DATE
+        ========================================== -->
 
         <div class="detail-box">
+
 
           <span class="detail-symbol">
 
@@ -439,13 +526,16 @@
 
           </strong>
 
+
         </div>
 
 
-
-        <!-- TIME -->
+        <!-- =========================================
+             TIME
+        ========================================== -->
 
         <div class="detail-box">
+
 
           <span class="detail-symbol">
 
@@ -467,11 +557,11 @@
 
           </strong>
 
+
         </div>
 
 
       </section>
-
 
 
       <!-- =========================================
@@ -484,7 +574,7 @@
         <video
           src="assets/couple.mp4"
           class="couple-photo"
-          aria-label="Ibtihel and Mahdi"
+          aria-label="Mahdi et Ibtihel"
           autoplay
           muted
           loop
@@ -501,9 +591,10 @@
 
         <img
           src="assets/stamp.png"
-          alt="Ibtihel and Mahdi"
+          alt="Mahdi et Ibtihel"
           class="bottom-stamp"
         >
+
 
       </section>
 
@@ -511,12 +602,12 @@
     </article>
 
 
-
     <!-- =========================================
          BACK BUTTON
     ========================================== -->
 
     <div class="back-wrapper">
+
 
       <button
         id="goBackBtn"
@@ -528,11 +619,11 @@
 
       </button>
 
+
     </div>
 
 
   </main>
-
 
 
   <!-- =========================================
