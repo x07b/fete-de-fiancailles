@@ -1,122 +1,455 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#b9a4c7">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#b9a4c7"
+  >
+
   <title>Ibtihel & Mahdi — دعوتنا</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
 </head>
+
+
 <body>
 
-  <audio id="backgroundMusic" loop preload="auto">
-    <source src="assets/song.mp3" type="audio/mpeg">
+
+  <!-- =========================
+       BACKGROUND MUSIC
+  ========================== -->
+
+  <audio
+    id="backgroundMusic"
+    loop
+    preload="auto"
+  >
+    <source
+      src="assets/song.mp3"
+      type="audio/mpeg"
+    >
   </audio>
 
-  <button id="musicToggle" class="music-toggle" aria-label="تشغيل أو إيقاف الموسيقى" title="Music">
+
+  <!-- =========================
+       MUSIC BUTTON
+  ========================== -->
+
+  <button
+    id="musicToggle"
+    class="music-toggle"
+    aria-label="تشغيل أو إيقاف الموسيقى"
+    title="Music"
+    type="button"
+  >
     <span id="musicIcon">♫</span>
   </button>
 
-  <main id="coverPage" class="page cover-page">
-    <div class="cover-media">
-      <video class="cover-video cover-desktop" autoplay muted loop playsinline poster="assets/cover-desktop.jpg">
-        <source src="assets/desktop-cover.mp4" type="video/mp4">
-      </video>
-      <img class="cover-fallback cover-desktop-fallback" src="assets/invitation-desktop.png" alt="Ibtihel and Mahdi invitation cover">
 
-      <video class="cover-video cover-mobile" autoplay muted loop playsinline poster="assets/cover-mobile.jpg">
-        <source src="assets/mobile-cover.mp4" type="video/mp4">
+  <!-- =========================
+       COVER PAGE
+  ========================== -->
+
+  <main
+    id="coverPage"
+    class="page cover-page"
+  >
+
+    <!-- COVER MEDIA -->
+
+    <div class="cover-media">
+
+
+      <!-- DESKTOP VIDEO -->
+
+      <video
+        class="cover-video cover-desktop"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="assets/desktop-cover.png"
+      >
+        <source
+          src="assets/desktop-cover.mp4"
+          type="video/mp4"
+        >
       </video>
-      <img class="cover-fallback cover-mobile-fallback" src="assets/invitation-mobile.png" alt="Ibtihel and Mahdi invitation cover">
+
+
+      <!-- DESKTOP FALLBACK IMAGE -->
+
+      <img
+        class="cover-fallback cover-desktop-fallback"
+        src="assets/invitation-desktop.png"
+        alt="Ibtihel and Mahdi invitation cover"
+      >
+
+
+      <!-- MOBILE VIDEO -->
+
+      <video
+        class="cover-video cover-mobile"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="assets/mobile-cover.png"
+      >
+        <source
+          src="assets/mobile-cover.mp4"
+          type="video/mp4"
+        >
+      </video>
+
+
+      <!-- MOBILE FALLBACK IMAGE -->
+
+      <img
+        class="cover-fallback cover-mobile-fallback"
+        src="assets/invitation-mobile.png"
+        alt="Ibtihel and Mahdi invitation cover"
+      >
+
     </div>
+
+
+    <!-- COVER OVERLAY -->
 
     <div class="cover-overlay"></div>
 
+
+    <!-- COVER CONTENT -->
+
     <div class="cover-content">
-      <p class="cover-kicker">دعوة خطوبة</p>
 
-      <img src="assets/stamp.png" class="cover-stamp" alt="Ibtihel & Mahdi">
+      <h1>Fête de Fiançailles</h1>
 
-      <h1>Ibtihel <span>&</span> Mahdi</h1>
+      <p class="cover-subtitle">
+        Mahdi <span>&</span> Ibtihel
+      </p>
 
-      <p class="cover-subtitle">قصة تبدأ بالحب وتدوم</p>
 
-      <button id="openInvitation" class="open-btn">
-        <span class="open-icon">✦</span>
-        <span>Ouvrir l'invitation</span>
+      <button
+        id="openInvitation"
+        class="open-btn"
+        type="button"
+      >
+
+        <span class="open-icon">
+          ✦
+        </span>
+
+        <span>
+          Ouvrir l'invitation
+        </span>
+
       </button>
+
     </div>
+
   </main>
 
-  <main id="invitationPage" class="page invitation-page" aria-hidden="true">
+
+  <!-- =========================
+       INVITATION PAGE
+  ========================== -->
+
+  <main
+    id="invitationPage"
+    class="page invitation-page"
+    aria-hidden="true"
+  >
+
+
+    <!-- FALLING PETALS -->
 
     <div id="petals"></div>
 
+
+    <!-- =========================
+         INVITATION CARD
+    ========================== -->
+
     <article class="invitation-card">
 
-      <div class="card-decoration decoration-top"></div>
-      <div class="card-decoration decoration-bottom"></div>
+
+      <!-- DECORATIONS -->
+
+      <div
+        class="card-decoration decoration-top"
+      ></div>
+
+      <div
+        class="card-decoration decoration-bottom"
+      ></div>
+
+
+      <!-- =========================
+           INVITATION TEXT
+      ========================== -->
 
       <section class="invitation-intro">
-        <div class="basmala">بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ</div>
 
-        <div class="mini-divider">❀ ─── ❀ ─── ❀</div>
+
+        <div class="basmala">
+          بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ
+        </div>
+
+
+        <div class="mini-divider">
+          ❀ ─── ❀ ─── ❀
+        </div>
+
 
         <p class="verse">
+
           ﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنْفُسِكُمْ أَزْوَاجًا
           لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾
+
         </p>
 
-        <div class="separator">✦</div>
+
+        <div class="separator">
+          ✦
+        </div>
+
 
         <p class="message">
-          موش كل يوم نتخطبوا، و موش مع أي عبد نفرحوا.. أحنا اخترنا بعضنا و اخترناكم
-          انتوما بش تشاركونا فرحتنا و أول خطوة في ثنيتنا. جيبوا ضحكتكم المزيانة
-          معاكم و حضروا رواحكم للشطيح.
+
+          موش كل يوم نتخطبوا، و موش مع أي عبد نفرحوا..
+          أحنا اخترنا بعضنا و اخترناكم انتوما بش تشاركونا فرحتنا
+          و أول خطوة في ثنيتنا.
+
+          جيبوا ضحكتكم المزيانة معاكم
+          و حضروا رواحكم للشطيح.
+
         </p>
 
-        <div class="flowers-divider">❀ ✿ ❀</div>
+
+        <div class="flowers-divider">
+          ❀ ✿ ❀
+        </div>
+
       </section>
+
+
+      <!-- =========================
+           EVENT DETAILS
+      ========================== -->
 
       <section class="details-grid">
-        <div class="detail-box">
-          <span class="detail-symbol">♡</span>
-          <span class="detail-label">المكان</span>
-          <strong>قاعة أفراح ليالي الأنس - منوبة</strong>
-        </div>
+
+
+        <!-- =========================
+             LOCATION
+        ========================== -->
+
+        <a
+          href="https://maps.app.goo.gl/2G6iGyXoma5h1pgb8"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="location-card"
+          aria-label="Ouvrir Espace Layali Al Ons dans Google Maps"
+        >
+
+
+          <!-- LOCATION HEADER -->
+
+          <div class="location-header">
+
+       
+
+
+            <div class="location-info">
+
+              <span class="location-label">
+                Localisation
+              </span>
+
+
+              <strong>
+                Espace Layali Al Ons - Manouba
+              </strong>
+
+            </div>
+
+     <div class="location-icon">
+              ✦
+            </div>
+            
+          </div>
+
+
+          <!-- MAP -->
+
+          <div class="map-preview">
+
+            <iframe
+              src="https://www.google.com/maps?q=Espace%20Layali%20Al%20Ons%20Manouba%20Tunisia&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Espace Layali Al Ons - Manouba"
+            ></iframe>
+
+          </div>
+
+
+          <!-- OPEN MAP TEXT -->
+
+          <div class="open-map">
+
+            <span>
+              Voir sur Google Maps
+            </span>
+
+            <span class="map-arrow">
+              ←
+            </span>
+
+          </div>
+
+        </a>
+
+
+        <!-- =========================
+             DATE
+        ========================== -->
 
         <div class="detail-box">
-          <span class="detail-symbol">✦</span>
-          <span class="detail-label">التاريخ</span>
-          <strong>السبت 26 سبتمبر 2026</strong>
+
+          <span class="detail-symbol">
+            ✦
+          </span>
+
+
+          <span class="detail-label">
+            Date
+          </span>
+
+
+          <strong>
+            السبت 26 سبتمبر 2026
+          </strong>
+
         </div>
 
+
+        <!-- =========================
+             TIME
+        ========================== -->
+
         <div class="detail-box">
-          <span class="detail-symbol">◷</span>
-          <span class="detail-label">الوقت</span>
-          <strong>الثامنة ليلاً (20:00)</strong>
+
+          <span class="detail-symbol">
+            ◷
+          </span>
+
+
+          <span class="detail-label">
+            Heure
+          </span>
+
+
+          <strong>
+            الثامنة ليلاً (20:00)
+          </strong>
+
         </div>
+
+
       </section>
+
+
+      <!-- =========================
+           COUPLE VIDEO
+      ========================== -->
 
       <section class="memory-section">
-        <img src="assets/couple.jpg" alt="Ibtihel & Mahdi" class="couple-photo">
 
-        <p class="save-date">Save the date <span>🌸</span></p>
+        <video
+          src="assets/couple.mp4"
+          class="couple-photo"
+          aria-label="Ibtihel and Mahdi"
+          autoplay
+          muted
+          loop
+          playsinline
+        >
+        </video>
 
-        <img src="assets/stamp.png" alt="Ibtihel & Mahdi" class="bottom-stamp">
+
+        <p class="save-date">
+          Save the date
+        </p>
+
+
+        <img
+          src="assets/stamp.png"
+          alt="Ibtihel and Mahdi"
+          class="bottom-stamp"
+        >
+
       </section>
+
 
     </article>
 
+
+    <!-- =========================
+         BACK BUTTON
+    ========================== -->
+
     <div class="back-wrapper">
-      <button id="goBackBtn" class="go-back-btn">Go Back</button>
+
+      <button
+        id="goBackBtn"
+        class="go-back-btn"
+        type="button"
+      >
+        Retour
+      </button>
+
     </div>
+
 
   </main>
 
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
   <script src="script.js"></script>
+
+
 </body>
+
 </html>
