@@ -12,73 +12,64 @@ const petals = document.getElementById("petals");
 
 
 /* =========================================
-   MUSIC
+   MUSIC AUTOPLAY
 ========================================= */
 
 music.volume = 0.55;
 
 
-/* Start music */
+/* =========================================
+   START MUSIC AUTOMATICALLY
+========================================= */
 
 async function startMusic() {
   try {
+
     await music.play();
 
     musicIcon.textContent = "❚❚";
 
+    console.log("Music started automatically.");
+
   } catch (error) {
 
     console.log(
-      "Autoplay blocked. Music will start after user interaction."
+      "Browser blocked autoplay:",
+      error
     );
+
+    musicIcon.textContent = "♫";
 
   }
 }
 
 
 /* =========================================
-   AUTOPLAY ON PAGE LOAD
+   START MUSIC IMMEDIATELY
 ========================================= */
 
-window.addEventListener("load", () => {
-
-  startMusic();
-
-});
+startMusic();
 
 
-/* =========================================
-   FALLBACK:
-   START MUSIC ON FIRST USER INTERACTION
-========================================= */
+/* Try again when everything is loaded */
 
-document.addEventListener(
-  "pointerdown",
+window.addEventListener(
+  "load",
   () => {
 
-    if (music.paused) {
+    startMusic();
 
-      startMusic();
-
-    }
-
-  },
-  {
-    once: true
   }
 );
 
 
 /* =========================================
-   MUSIC TOGGLE BUTTON
+   MUSIC BUTTON
 ========================================= */
 
 musicToggle.addEventListener(
   "click",
-  async (event) => {
-
-    event.stopPropagation();
-
+  async () => {
 
     if (music.paused) {
 
@@ -104,15 +95,6 @@ openInvitation.addEventListener(
   "click",
   () => {
 
-    /* Make sure music is playing */
-
-    if (music.paused) {
-
-      startMusic();
-
-    }
-
-
     /* Hide cover page */
 
     coverPage.style.display = "none";
@@ -132,11 +114,6 @@ openInvitation.addEventListener(
     );
 
 
-    /* Move keyboard focus */
-
-    goBackBtn.focus();
-
-
     /* Go to top */
 
     window.scrollTo({
@@ -147,11 +124,13 @@ openInvitation.addEventListener(
 
     /* Create petals */
 
-    requestAnimationFrame(() => {
+    requestAnimationFrame(
+      () => {
 
-      createPetals(45);
+        createPetals(45);
 
-    });
+      }
+    );
 
   }
 );
@@ -165,14 +144,15 @@ goBackBtn.addEventListener(
   "click",
   () => {
 
-    /* Show cover page first */
-
-    coverPage.style.display = "grid";
-
-
-    /* Move focus outside invitation */
+    /* Move focus outside invitation
+       before hiding it */
 
     openInvitation.focus();
+
+
+    /* Show cover page */
+
+    coverPage.style.display = "grid";
 
 
     /* Hide invitation page */
@@ -216,18 +196,13 @@ function createPetals(count) {
   petals.innerHTML = "";
 
 
-  /*
-    Get the complete height
-    of the invitation page
-  */
+  /* Get full invitation height */
 
   const pageHeight =
     invitationPage.scrollHeight;
 
 
-  /*
-    Create petals
-  */
+  /* Create petals */
 
   for (
     let i = 0;
@@ -273,10 +248,7 @@ function createPetals(count) {
     );
 
 
-    /*
-      Make the petal fall
-      through the complete page
-    */
+    /* Fall through entire page */
 
     petal.style.setProperty(
       "--fall-distance",
