@@ -56,7 +56,7 @@ button {
   font-family: "SignFont2";
 
   src:
-    url("./fonts/Housemail Script Trial.otf")
+    url("./fonts/SunsetScript.woff")
     format("opentype");
 }
 
@@ -64,7 +64,7 @@ button {
   font-family: "SignFont3";
 
   src:
-    url("./fonts/Sunset Palm - Script Trial.otf")
+    url("./fonts/Artisan\ Script.otf")
     format("opentype");
 }
 

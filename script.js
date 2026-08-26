@@ -18,21 +18,29 @@ const petals = document.getElementById("petals");
 music.volume = 0.55;
 
 
-/* Start music */
+/* =========================================
+   START MUSIC
+========================================= */
 
 async function startMusic() {
+
   try {
+
     await music.play();
 
     musicIcon.textContent = "❚❚";
 
   } catch (error) {
 
-    console.log("Music could not start:", error);
+    console.log(
+      "Music could not start:",
+      error
+    );
 
     musicIcon.textContent = "♫";
 
   }
+
 }
 
 
@@ -40,128 +48,208 @@ async function startMusic() {
    MUSIC BUTTON
 ========================================= */
 
-musicToggle.addEventListener("click", async (event) => {
+musicToggle.addEventListener(
+  "click",
+  async (event) => {
 
-  event.stopPropagation();
+    event.stopPropagation();
 
-  if (music.paused) {
+    if (music.paused) {
 
-    await startMusic();
+      await startMusic();
 
-  } else {
+    } else {
 
-    music.pause();
+      music.pause();
 
-    musicIcon.textContent = "♫";
+      musicIcon.textContent = "♫";
+
+    }
 
   }
-
-});
+);
 
 
 /* =========================================
    OPEN INVITATION
 ========================================= */
 
-openInvitation.addEventListener("click", async () => {
+openInvitation.addEventListener(
+  "click",
+  async () => {
 
-  /*
-    IMPORTANT:
+    /*
+       User interaction allows
+       the browser to start music.
+    */
 
-    This click is a user interaction,
-    so the browser allows the music
-    to start here.
-  */
-
-  await startMusic();
-
-
-  /* Hide cover page */
-
-  coverPage.style.display = "none";
+    await startMusic();
 
 
-  /* Show invitation page */
+    /*
+       Stop cover video when
+       leaving the cover page.
+    */
 
-  invitationPage.classList.add("active");
+    const coverVideos = document.querySelectorAll(
+      ".cover-video"
+    );
 
-  invitationPage.inert = false;
+    coverVideos.forEach((video) => {
 
-  invitationPage.setAttribute(
-    "aria-hidden",
-    "false"
-  );
+      video.pause();
 
-
-  /* Move focus */
-
-  goBackBtn.focus();
-
-
-  /* Go to top */
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+    });
 
 
-  /* Create petals */
+    /*
+       Hide cover page.
+    */
 
-  requestAnimationFrame(() => {
+    coverPage.style.display = "none";
 
-    createPetals(45);
 
-  });
+    /*
+       Activate invitation page.
+    */
 
-});
+    invitationPage.classList.add(
+      "active"
+    );
+
+
+    /*
+       Remove inert so the invitation
+       can receive focus and interaction.
+    */
+
+    invitationPage.inert = false;
+
+
+    /*
+       Scroll to top immediately.
+    */
+
+    window.scrollTo({
+
+      top: 0,
+
+      behavior: "auto"
+
+    });
+
+
+    /*
+       Wait until the invitation
+       is visible before focusing.
+    */
+
+    requestAnimationFrame(() => {
+
+      goBackBtn.focus();
+
+      createPetals(24);
+
+    });
+
+  }
+);
 
 
 /* =========================================
    GO BACK
 ========================================= */
 
-goBackBtn.addEventListener("click", () => {
-
-  /*
-    Move focus first.
-
-    This prevents the aria-hidden warning.
-  */
-
-  openInvitation.focus();
+goBackBtn.addEventListener(
+  "click",
+  () => {
 
 
-  /* Hide invitation */
+    /*
+       FIRST:
+       Show the cover page.
+    */
 
-  invitationPage.classList.remove("active");
-
-  invitationPage.inert = true;
-
-  invitationPage.setAttribute(
-    "aria-hidden",
-    "true"
-  );
+    coverPage.style.display = "grid";
 
 
-  /* Show cover */
+    /*
+       SECOND:
+       Move focus OUTSIDE
+       invitationPage.
 
-  coverPage.style.display = "grid";
+       This is the important fix.
+    */
+
+    openInvitation.focus();
 
 
-  /* Remove petals */
+    /*
+       Wait one animation frame
+       so the browser registers
+       the new focused element.
+    */
 
-  petals.innerHTML = "";
+    requestAnimationFrame(() => {
 
 
-  /* Go to top */
+      /*
+         Now it is safe to make
+         invitationPage inert.
+      */
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+      invitationPage.inert = true;
 
-});
+
+      /*
+         Hide invitation.
+      */
+
+      invitationPage.classList.remove(
+        "active"
+      );
+
+
+      /*
+         Remove petals.
+      */
+
+      petals.innerHTML = "";
+
+
+      /*
+         Return to top.
+      */
+
+      window.scrollTo({
+
+        top: 0,
+
+        behavior: "auto"
+
+      });
+
+
+      /*
+         Restart the appropriate
+         cover video.
+      */
+
+      const coverVideos =
+        document.querySelectorAll(
+          ".cover-video"
+        );
+
+      coverVideos.forEach((video) => {
+
+        video.play().catch(() => {});
+
+      });
+
+    });
+
+  }
+);
 
 
 /* =========================================
@@ -170,66 +258,116 @@ goBackBtn.addEventListener("click", () => {
 
 function createPetals(count) {
 
-  /* Remove existing petals */
+
+  /*
+     Remove existing petals first.
+  */
 
   petals.innerHTML = "";
 
 
-  /* Get invitation height */
+  /*
+     Get invitation page height.
+  */
 
   const pageHeight =
     invitationPage.scrollHeight;
 
 
-  /* Create petals */
+  /*
+     Create elements in memory first.
+
+     This is slightly more efficient
+     than repeatedly adding directly
+     to the DOM.
+  */
+
+  const fragment =
+    document.createDocumentFragment();
+
+
+  /*
+     Create petals.
+  */
 
   for (let i = 0; i < count; i++) {
+
 
     const petal =
       document.createElement("span");
 
 
-    petal.className = "petal";
+    petal.className =
+      "petal";
 
 
-    /* Random horizontal position */
+    /*
+       Random horizontal position.
+    */
 
     petal.style.left =
       `${Math.random() * 100}%`;
 
 
-    /* Random duration */
+    /*
+       Random animation duration.
+    */
 
     petal.style.animationDuration =
       `${8 + Math.random() * 8}s`;
 
 
-    /* Random delay */
+    /*
+       Random animation delay.
+    */
 
     petal.style.animationDelay =
       `${Math.random() * 3}s`;
 
 
-    /* Random horizontal movement */
+    /*
+       Random horizontal movement.
+    */
 
     petal.style.setProperty(
+
       "--x",
+
       `${-100 + Math.random() * 200}px`
+
     );
 
 
-    /* Full falling distance */
+    /*
+       Full falling distance.
+    */
 
     petal.style.setProperty(
+
       "--fall-distance",
+
       `${pageHeight + 100}px`
+
     );
 
 
-    /* Add petal */
+    /*
+       Add to fragment.
+    */
 
-    petals.appendChild(petal);
+    fragment.appendChild(
+      petal
+    );
 
   }
+
+
+  /*
+     Add everything at once.
+  */
+
+  petals.appendChild(
+    fragment
+  );
 
 }
