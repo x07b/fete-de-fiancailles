@@ -10,37 +10,24 @@ const invitationPage = document.getElementById("invitationPage");
 
 const petals = document.getElementById("petals");
 
+music.volume = 0.55;
+
 
 /* =========================================
    MUSIC
 ========================================= */
 
-music.volume = 0.55;
-
-
-/* =========================================
-   START MUSIC
-========================================= */
-
 async function startMusic() {
-
   try {
-
     await music.play();
 
     musicIcon.textContent = "❚❚";
 
   } catch (error) {
-
-    console.log(
-      "Music could not start:",
-      error
-    );
+    console.log("Music could not start:", error);
 
     musicIcon.textContent = "♫";
-
   }
-
 }
 
 
@@ -48,208 +35,176 @@ async function startMusic() {
    MUSIC BUTTON
 ========================================= */
 
-musicToggle.addEventListener(
-  "click",
-  async (event) => {
+musicToggle.addEventListener("click", async (event) => {
 
-    event.stopPropagation();
+  event.stopPropagation();
 
-    if (music.paused) {
+  if (music.paused) {
+    await startMusic();
 
-      await startMusic();
+  } else {
+    music.pause();
 
-    } else {
-
-      music.pause();
-
-      musicIcon.textContent = "♫";
-
-    }
-
+    musicIcon.textContent = "♫";
   }
-);
+
+});
 
 
 /* =========================================
    OPEN INVITATION
 ========================================= */
 
-openInvitation.addEventListener(
-  "click",
-  async () => {
+openInvitation.addEventListener("click", async () => {
+
+  /* Start music after user interaction */
+
+  await startMusic();
+
+
+  /* Stop cover videos */
+
+  const coverVideos =
+    document.querySelectorAll(".cover-video");
+
+  coverVideos.forEach((video) => {
+    video.pause();
+  });
+
+
+  /* Hide cover */
+
+  coverPage.style.display = "none";
+
+
+  /* Show invitation */
+
+  invitationPage.classList.add("active");
+
+  invitationPage.inert = false;
+
+
+  /*
+     IMPORTANT:
+
+     Start at the very top.
+  */
+
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "auto"
+  });
+
+
+  /*
+     Wait until the invitation
+     has been rendered.
+  */
+
+  requestAnimationFrame(() => {
 
     /*
-       User interaction allows
-       the browser to start music.
-    */
+       Make sure we stay at the top.
 
-    await startMusic();
-
-
-    /*
-       Stop cover video when
-       leaving the cover page.
-    */
-
-    const coverVideos = document.querySelectorAll(
-      ".cover-video"
-    );
-
-    coverVideos.forEach((video) => {
-
-      video.pause();
-
-    });
-
-
-    /*
-       Hide cover page.
-    */
-
-    coverPage.style.display = "none";
-
-
-    /*
-       Activate invitation page.
-    */
-
-    invitationPage.classList.add(
-      "active"
-    );
-
-
-    /*
-       Remove inert so the invitation
-       can receive focus and interaction.
-    */
-
-    invitationPage.inert = false;
-
-
-    /*
-       Scroll to top immediately.
+       We focus the invitation container,
+       NOT the Retour button.
     */
 
     window.scrollTo({
-
       top: 0,
-
+      left: 0,
       behavior: "auto"
-
     });
 
 
     /*
-       Wait until the invitation
-       is visible before focusing.
+       Focus without causing scroll.
     */
 
-    requestAnimationFrame(() => {
-
-      goBackBtn.focus();
-
-      createPetals(24);
-
+    invitationPage.focus({
+      preventScroll: true
     });
 
-  }
-);
+
+    /* Create petals */
+
+    createPetals(24);
+
+  });
+
+});
 
 
 /* =========================================
    GO BACK
 ========================================= */
 
-goBackBtn.addEventListener(
-  "click",
-  () => {
+goBackBtn.addEventListener("click", () => {
+
+
+  /*
+     Show the cover first.
+  */
+
+  coverPage.style.display = "grid";
+
+
+  /*
+     Move focus outside invitation.
+  */
+
+  openInvitation.focus({
+    preventScroll: true
+  });
+
+
+  requestAnimationFrame(() => {
 
 
     /*
-       FIRST:
-       Show the cover page.
-    */
+       Make invitation inactive.
+  */
 
-    coverPage.style.display = "grid";
+    invitationPage.inert = true;
 
-
-    /*
-       SECOND:
-       Move focus OUTSIDE
-       invitationPage.
-
-       This is the important fix.
-    */
-
-    openInvitation.focus();
+    invitationPage.classList.remove("active");
 
 
     /*
-       Wait one animation frame
-       so the browser registers
-       the new focused element.
-    */
+       Remove petals.
+  */
 
-    requestAnimationFrame(() => {
+    petals.innerHTML = "";
 
 
-      /*
-         Now it is safe to make
-         invitationPage inert.
-      */
+    /*
+       Return to top.
+  */
 
-      invitationPage.inert = true;
-
-
-      /*
-         Hide invitation.
-      */
-
-      invitationPage.classList.remove(
-        "active"
-      );
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "auto"
+    });
 
 
-      /*
-         Remove petals.
-      */
+    /*
+       Restart cover videos.
+  */
 
-      petals.innerHTML = "";
+    const coverVideos =
+      document.querySelectorAll(".cover-video");
 
+    coverVideos.forEach((video) => {
 
-      /*
-         Return to top.
-      */
-
-      window.scrollTo({
-
-        top: 0,
-
-        behavior: "auto"
-
-      });
-
-
-      /*
-         Restart the appropriate
-         cover video.
-      */
-
-      const coverVideos =
-        document.querySelectorAll(
-          ".cover-video"
-        );
-
-      coverVideos.forEach((video) => {
-
-        video.play().catch(() => {});
-
-      });
+      video.play().catch(() => {});
 
     });
 
-  }
-);
+  });
+
+});
 
 
 /* =========================================
@@ -258,116 +213,74 @@ goBackBtn.addEventListener(
 
 function createPetals(count) {
 
-
-  /*
-     Remove existing petals first.
-  */
+  /* Remove old petals */
 
   petals.innerHTML = "";
 
 
-  /*
-     Get invitation page height.
-  */
+  /* Get page height */
 
   const pageHeight =
     invitationPage.scrollHeight;
 
 
   /*
-     Create elements in memory first.
-
-     This is slightly more efficient
-     than repeatedly adding directly
-     to the DOM.
+     Create petals in memory first.
   */
 
   const fragment =
     document.createDocumentFragment();
 
 
-  /*
-     Create petals.
-  */
-
   for (let i = 0; i < count; i++) {
-
 
     const petal =
       document.createElement("span");
 
-
-    petal.className =
-      "petal";
+    petal.className = "petal";
 
 
-    /*
-       Random horizontal position.
-    */
+    /* Random horizontal position */
 
     petal.style.left =
       `${Math.random() * 100}%`;
 
 
-    /*
-       Random animation duration.
-    */
+    /* Random animation duration */
 
     petal.style.animationDuration =
       `${8 + Math.random() * 8}s`;
 
 
-    /*
-       Random animation delay.
-    */
+    /* Random animation delay */
 
     petal.style.animationDelay =
       `${Math.random() * 3}s`;
 
 
-    /*
-       Random horizontal movement.
-    */
+    /* Random horizontal movement */
 
     petal.style.setProperty(
-
       "--x",
-
       `${-100 + Math.random() * 200}px`
-
     );
 
 
-    /*
-       Full falling distance.
-    */
+    /* Falling distance */
 
     petal.style.setProperty(
-
       "--fall-distance",
-
       `${pageHeight + 100}px`
-
     );
 
 
-    /*
-       Add to fragment.
-    */
-
-    fragment.appendChild(
-      petal
-    );
+    fragment.appendChild(petal);
 
   }
 
 
-  /*
-     Add everything at once.
-  */
+  /* Add all petals at once */
 
-  petals.appendChild(
-    fragment
-  );
+  petals.appendChild(fragment);
 
 }
